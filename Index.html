@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMKM Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f0e7;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        header {
+            background-color: #800000;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; /* Tetap terlihat saat scroll */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #a00000;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        .hero {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        .divider {
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #800000, #f9f0e7);
+            margin: 50px 0;
+        }
+
+        .footer {
+            background-color: #800000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .social-icons a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 20px;
+            gap: 20px;
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            background-color: #ffffff; /* Putih untuk teks */
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #800000; /* Border maroon */
+        }
+
+        .left-section img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .testimonial-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 20px;
+            gap: 20px;
+        }
+
+        .testimonial-form, .testimonial-display {
+            flex: 1;
+            background-color: #ffffff; /* Putih untuk form */
+            border: 1px solid #800000; /* Border maroon */
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Warna teks gelap */
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            height: 100px; /* Tinggi area teks */
+        }
+
+        .submit-button {
+            background-color: #800000; /* Warna maroon */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #a00000; /* Warna maroon lebih terang saat hover */
+        }
+
+        .testimoni {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f2f2f2;
+        }
+
+        .testimoni p {
+            margin: 5px 0;
+        }
+
+        .feedback-form {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #ffffff; /* Putih untuk form */
+            border: 1px solid #800000; /* Border maroon */
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .feedback-form h2 {
+            text-align: center;
+            color: #800000; /* Warna maroon untuk judul */
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Warna teks gelap */
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            height: 100px; /* Tinggi area teks */
+        }
+
+        .submit-button {
+            background-color: #800000; /* Warna maroon */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #a00000; /* Warna maroon lebih terang saat hover */
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #ffffff; /* Putih untuk form */
+            border: 1px solid #800000; /* Border maroon */
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            color: #800000; /* Warna maroon untuk judul */
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Warna teks gelap */
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            height: 100px; /* Tinggi area teks */
+        }
+
+        .submit-button {
+            background-color: #800000; /* Warna maroon */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #a00000; /* Warna maroon lebih terang saat hover */
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: #ffffff; /* Putih untuk kartu produk */
+            border: 1px solid #800000; /* Border maroon */
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Gambar/logo imk.png" width="50">
+        </div>
+        <nav>
+            <a href="beranda.html">Beranda</a>
+            <a href="login dan sign up.html" onclick="toggleModal('login-modal')">Login</a>
+            <a href="tentang kami.html">Tentang Kami</a>
+            <a href="produk.html">Produk</a>
+            <a href="kontak kami.html">Kontak Kami</a>
+            <a href="Testimoni.html">Testimoni</a>
+            <a href="kritik dan saran.html">Kritik dan Saran</a>
+        </nav>
+    </header>
+
+    <!-- Section Beranda -->
+    <section id="Beranda">
+        <div class="hero">
+            <img src="Gambar/banner beranda.jpg">
+        </div>
+        <h2 style="text-align:center; color:#800000;">Selamat Datang di UMKM Platform</h2>
+        <p style="text-align:center;">Kami menyediakan produk berkualitas dari pelaku UMKM Indonesia.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section Tentang Kami -->
+    <div class="main-content">
+        <div class="left-section">
+            <img src="Gambar/banner tentang kami.jpg" width="600" height="400">
+        </div>
+        <div class="right-section">
+            <h2>Tentang Kami</h2>
+            <p><strong>Visi:</strong> Menjadi platform unggulan untuk mendukung pelaku UMKM di Indonesia.</p>
+            <p><strong>Misi:</strong> Meningkatkan kualitas produk dan pemasaran UMKM dengan teknologi digital.</p>
+            <p><strong>Sejarah:</strong> Didirikan pada tahun 2023, kami berkomitmen untuk membantu pelaku UMKM dalam memasarkan produk mereka secara efektif.</p>
+            <p>Informasi penting lainnya dapat ditambahkan di sini untuk memberikan pemahaman lebih mendalam tentang bisnis kami.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    
+    <!-- Section Profil Produk -->
+    <h2 style="text-align: center;">Produk</h2>
+    <div class="product-container">
+        <div class="product-grid">
+            <!-- Baris atas -->
+            <div class="product-card">
+                <img src="Gambar/Gelang.jpg">
+                <h3>Gelang Pretty Series Handmade</h3>
+                <p><strong>Deskripsi:</strong></p>
+                <p>Koleksi gelang handmade dengan desain manis dan elegan. Cocok untuk anak muda yang suka tampil beda.</p>
+                <p>Tersedia berbagai model, seperti Alice, Livy, Viola, dan Clara.</p>
+                <p><a href="tel:123456789">Hubungi Pemilik</a></p>
+            </div>
+
+            <div class="product-card">
+                <img src="Gambar/kripik tempe.png">
+                <h3>Keripik Tempe Citrik</h3>
+                <p><strong>Deskripsi:</strong></p>
+                <p>Keripik tempe renyah dengan cita rasa gurih yang khas. Terbuat dari kedelai pilihan dan bumbu rempah nusantara. Dikemas higienis untuk menjaga kesegarannya.</p>
+                <p>Tersedia dalam ukuran 250g dan 500g.</p>
+                <p><a href="tel:987654321">Hubungi Pemilik</a></p>
+            </div>
+
+            <div class="product-card">
+                <img src="Gambar/Sendok.png">
+                <h3>Sendok Kayu Alami</h3>
+                <p><strong>Deskripsi:</strong></p>
+                <p>Sendok kayu handmade dari bahan kayu jati berkualitas. Sangat cocok digunakan sehari-hari untuk makanan panas dan dingin.</p>
+                <p>Tersedia dalam set isi 3 sendok. Pemesanan grosir mendapatkan diskon spesial!</p>
+                <p><a href="tel:123123123">Hubungi Pemilik</a></p>
+            </div>
+            
+            <div class="product-card">
+                <img src="Gambar/Tudung saji.png">
+                <h3>Tudung Saji Batik Tradisional</h3>
+                <p><strong>Deskripsi:</strong></p>
+                <p>Tudung saji dengan motif batik khas Indonesia. Terbuat dari anyaman bambu berkualitas tinggi, menjaga makanan tetap higienis dan estetik di meja makan Anda.</p>
+                <p>Tersedia dalam berbagai ukuran dan warna. Cocok untuk rumah tangga maupun acara spesial.</p>
+                <p><a href="tel:321321321">Hubungi Pemilik</a></p>
+            </div>
+
+            <!-- Baris bawah -->
+            <div class="product-card">
+                <img src="Gambar/Abon ikan.png">
+                <h3>Abon Ikan Tuna</h3>
+                <p><strong>Deskirpsi:</strong></p>
+                <p>Abon ikan kaya gizi dengan tekstur lembut dan rasa gurih manis yang khas. Dibuat dari ikan segar pilihan, tanpa bahan pengawet, cocok sebagai lauk atau camilan sehat.</p>
+                <p> Tersedia varian rasa original dan pedas.</p>
+                <p><a href="tel:456456456">Hubungi Pemilik</a></p>
+            </div>
+            <div class="product-card">
+                <img src="Gambar/Baju.png">
+                <h3>Vest Rajut Multi-Style</h3>
+                <p><strong>Deskirpsi:</strong></p>
+                <p>Vest rajut nyaman dan stylish untuk melengkapi berbagai gaya kasual maupun formal.</p>
+                <p>Tersedia dalam empat warna elegan: taupe, krem, coklat, dan abu-abu.</p>
+                <p>Material rajut halus, tidak panas, dan mudah dipadukan dengan outfit apa saja. </p>
+                <p><a href="tel:654654654">Hubungi Pemilik</a></p>
+            </div>
+            <div class="product-card">
+                <img src="Gambar/Kerudung.jpg">
+                <h3>Pashmina Basic</h3>
+                <p><strong>Deskripsi:</strong></p>
+                <p>Pashmina polos dengan bahan ringan, tidak licin, dan mudah dibentuk. Cocok untuk gaya hijab simple hingga formal. </p>
+                <p>Tersedia dalam 4 warna yang timeless.</p>
+                <p><a href="tel:789789789">Hubungi Pemilik</a></p>
+            </div>
+            <div class="product-card">
+                <img src="Gambar/Mukena.jpg">
+                <h3>Mukena Travel Set</h3>
+                <p><strong>Deskripsi:</strong></p>
+                <p>Mukena praktis dengan desain cantik, ringan, dan mudah dibawa ke mana saja. Terbuat dari bahan premium yang adem dan tidak menerawang.</p>
+                <p><a href="tel:987987987">Hubungi Pemilik</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="divider"></div>
+
+    <!-- Section Kontak Kami -->
+    <div class="contact-form">
+        <h2>Kontak Kami</h2>
+        <form>
+            <div class="form-field">
+                <label for="name">Nama Pengirim:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Alamat Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Kirim Pesan</button>
+        </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Section Testimoni -->
+    <div class="testimonial-container">
+        <div class="testimonial-form">
+            <h2>Berikan Testimoni</h2>
+            <form id="testimonialForm">
+                <div class="form-field">
+                    <label for="username">Nama:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-field">
+                    <label for="testimoni">Testimoni:</label>
+                    <textarea id="testimoni" name="testimoni" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Kirim Testimoni</button>
+            </form>
+        </div>
+
+        <div class="testimonial-display" id="testimonialDisplay">
+            <h2>Testimoni Pengunjung</h2>
+            <div class="testimoni">
+                <p><strong>Rina:</strong></p>
+                <p>"Produk ini sangat bagus dan berkualitas!"</p>
+            </div>
+            <div class="testimoni">
+                <p><strong>Fahmi:</strong></p>
+                <p>"Pelayanan cepat dan ramah. Sangat memuaskan!"</p>
+            </div>
+            <div class="testimoni">
+                <p><strong>Ayu:</strong></p>
+                <p>"Saya akan beli lagi. Recommended!"</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('testimonialForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const testimoni = document.getElementById('testimoni').value;
+
+            const testimonialDiv = document.createElement('div');
+            testimonialDiv.classList.add('testimonial');
+            testimonialDiv.innerHTML = `<h4>${username}</h4><p>${testimoni}</p>`;
+
+            const testimonialDisplay = document.getElementById('testimonialDisplay');
+            testimonialDisplay.appendChild(testimonialDiv);
+
+            document.getElementById('testimonialForm').reset();
+        });
+    </script>
+
+    <div class="divider"></div>
+
+    <!-- Section Kritik dan Saran -->
+    <div class="feedback-form">
+        <h2>Kritik dan Saran</h2>
+        <form>
+            <div class="form-field">
+                <label for="username">Nama Pengguna:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Alamat Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="feedback">Kritik dan Saran:</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Kirim Feedback</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="social-icons">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">WhatsApp</a>
+        </div>
+        <p>Lokasi: Semarang, Indonesia</p>
+    </div>
+</body>
+</html>
